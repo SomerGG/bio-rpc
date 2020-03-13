@@ -15,7 +15,7 @@ public class ClientStarter {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
         RpcClientProxy rpcClientProxy = applicationContext.getBean(RpcClientProxy.class);
-        IHelloService helloService = rpcClientProxy.clientProxy(IHelloService.class, "localhost", 8080);
+        IHelloService helloService = rpcClientProxy.clientProxy(IHelloService.class, "localhost", 8080, "v1");
         String result = helloService.sayHello("Somer");
         System.out.println(result);
         String saveUserResult = helloService.saveUser(new User("Somer", 18));

@@ -16,9 +16,12 @@ public class RemoteInvocationHandler implements InvocationHandler {
 
     private int port;
 
-    public RemoteInvocationHandler(String host, int port) {
+    private String version;
+
+    public RemoteInvocationHandler(String host, int port, String version) {
         this.host = host;
         this.port = port;
+        this.version = version;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class RemoteInvocationHandler implements InvocationHandler {
         request.setClassName(method.getDeclaringClass().getName());
         request.setMethodName(method.getName());
         request.setParameters(args);
-        request.setVersion("v1");
+        request.setVersion(this.version);
         RpcNetTransport rpcNetTransport = new RpcNetTransport(host, port);
         Object result = rpcNetTransport.send(request);
         return result;
