@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2020-03-10 20:21
  */
 @Configuration
-@ComponentScan(basePackages = "cn.xysomer")
+@ComponentScan(basePackages = "cn.xysomer.rpc.provider")
 public class SpringConfig {
 
     @Bean(name = "rpcServer")

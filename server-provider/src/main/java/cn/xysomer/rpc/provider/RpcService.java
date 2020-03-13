@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Component//被 Spring 扫描
+@Component
 public @interface RpcService {
 
     Class<?> value();//暴露的服务
